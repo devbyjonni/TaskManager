@@ -19,6 +19,7 @@
 		FAFC228D2C8E32F500143C3D /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFC228C2C8E32F500143C3D /* Task.swift */; };
 		FAFC228F2C8E33E700143C3D /* TaskController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFC228E2C8E33E700143C3D /* TaskController.swift */; };
 		FAFC22912C8E34E200143C3D /* TaskRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFC22902C8E34E200143C3D /* TaskRowView.swift */; };
+		FAFC22932C8E35B300143C3D /* TasksView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFC22922C8E35B300143C3D /* TasksView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -35,6 +36,7 @@
 		FAFC228C2C8E32F500143C3D /* Task.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Task.swift; sourceTree = "<group>"; };
 		FAFC228E2C8E33E700143C3D /* TaskController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskController.swift; sourceTree = "<group>"; };
 		FAFC22902C8E34E200143C3D /* TaskRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskRowView.swift; sourceTree = "<group>"; };
+		FAFC22922C8E35B300143C3D /* TasksView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TasksView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -92,6 +94,7 @@
 			children = (
 				FAFC227C2C8E2E9F00143C3D /* HomeView.swift */,
 				FAFC22902C8E34E200143C3D /* TaskRowView.swift */,
+				FAFC22922C8E35B300143C3D /* TasksView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -203,6 +206,7 @@
 				FAFC228D2C8E32F500143C3D /* Task.swift in Sources */,
 				FAFC228F2C8E33E700143C3D /* TaskController.swift in Sources */,
 				FAFC228B2C8E31BC00143C3D /* Bool+Extensions.swift in Sources */,
+				FAFC22932C8E35B300143C3D /* TasksView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -13,6 +13,6 @@ struct TaskManagerApp: App {
         WindowGroup {
             HomeView()
         }
-        //.modelContainer(for: Task.self)
+        .modelContainer(for: Task.self)
     }
 }
