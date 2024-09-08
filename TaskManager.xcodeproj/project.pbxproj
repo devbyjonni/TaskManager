@@ -20,6 +20,7 @@
 		FAFC228F2C8E33E700143C3D /* TaskController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFC228E2C8E33E700143C3D /* TaskController.swift */; };
 		FAFC22912C8E34E200143C3D /* TaskRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFC22902C8E34E200143C3D /* TaskRowView.swift */; };
 		FAFC22932C8E35B300143C3D /* TasksView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFC22922C8E35B300143C3D /* TasksView.swift */; };
+		FAFC22952C8E36C000143C3D /* AddEditTaskView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFC22942C8E36C000143C3D /* AddEditTaskView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -37,6 +38,7 @@
 		FAFC228E2C8E33E700143C3D /* TaskController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskController.swift; sourceTree = "<group>"; };
 		FAFC22902C8E34E200143C3D /* TaskRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskRowView.swift; sourceTree = "<group>"; };
 		FAFC22922C8E35B300143C3D /* TasksView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TasksView.swift; sourceTree = "<group>"; };
+		FAFC22942C8E36C000143C3D /* AddEditTaskView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddEditTaskView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -95,6 +97,7 @@
 				FAFC227C2C8E2E9F00143C3D /* HomeView.swift */,
 				FAFC22902C8E34E200143C3D /* TaskRowView.swift */,
 				FAFC22922C8E35B300143C3D /* TasksView.swift */,
+				FAFC22942C8E36C000143C3D /* AddEditTaskView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -205,6 +208,7 @@
 				FAFC227D2C8E2E9F00143C3D /* HomeView.swift in Sources */,
 				FAFC228D2C8E32F500143C3D /* Task.swift in Sources */,
 				FAFC228F2C8E33E700143C3D /* TaskController.swift in Sources */,
+				FAFC22952C8E36C000143C3D /* AddEditTaskView.swift in Sources */,
 				FAFC228B2C8E31BC00143C3D /* Bool+Extensions.swift in Sources */,
 				FAFC22932C8E35B300143C3D /* TasksView.swift in Sources */,
 			);
