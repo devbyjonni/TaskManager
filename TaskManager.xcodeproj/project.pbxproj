@@ -16,6 +16,7 @@
 		FAFC22872C8E318600143C3D /* View+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFC22862C8E318600143C3D /* View+Extensions.swift */; };
 		FAFC22892C8E319F00143C3D /* Date+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFC22882C8E319F00143C3D /* Date+Extensions.swift */; };
 		FAFC228B2C8E31BC00143C3D /* Bool+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFC228A2C8E31BC00143C3D /* Bool+Extensions.swift */; };
+		FAFC228D2C8E32F500143C3D /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFC228C2C8E32F500143C3D /* Task.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,6 +30,7 @@
 		FAFC22862C8E318600143C3D /* View+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Extensions.swift"; sourceTree = "<group>"; };
 		FAFC22882C8E319F00143C3D /* Date+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extensions.swift"; sourceTree = "<group>"; };
 		FAFC228A2C8E31BC00143C3D /* Bool+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bool+Extensions.swift"; sourceTree = "<group>"; };
+		FAFC228C2C8E32F500143C3D /* Task.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Task.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,8 +64,8 @@
 		FAFC226B2C8E2E5000143C3D /* TaskManager */ = {
 			isa = PBXGroup;
 			children = (
-				FAFC22802C8E2F6100143C3D /* Model */,
 				FAFC226C2C8E2E5000143C3D /* TaskManagerApp.swift */,
+				FAFC22802C8E2F6100143C3D /* Model */,
 				FAFC227E2C8E2F3100143C3D /* Views */,
 				FAFC227F2C8E2F5000143C3D /* Extensions */,
 				FAFC22812C8E2FA000143C3D /* OffsetKey */,
@@ -102,6 +104,7 @@
 		FAFC22802C8E2F6100143C3D /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				FAFC228C2C8E32F500143C3D /* Task.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -190,6 +193,7 @@
 				FAFC22872C8E318600143C3D /* View+Extensions.swift in Sources */,
 				FAFC22892C8E319F00143C3D /* Date+Extensions.swift in Sources */,
 				FAFC227D2C8E2E9F00143C3D /* HomeView.swift in Sources */,
+				FAFC228D2C8E32F500143C3D /* Task.swift in Sources */,
 				FAFC228B2C8E31BC00143C3D /* Bool+Extensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
