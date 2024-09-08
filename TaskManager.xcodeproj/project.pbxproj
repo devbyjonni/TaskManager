@@ -18,6 +18,7 @@
 		FAFC228B2C8E31BC00143C3D /* Bool+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFC228A2C8E31BC00143C3D /* Bool+Extensions.swift */; };
 		FAFC228D2C8E32F500143C3D /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFC228C2C8E32F500143C3D /* Task.swift */; };
 		FAFC228F2C8E33E700143C3D /* TaskController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFC228E2C8E33E700143C3D /* TaskController.swift */; };
+		FAFC22912C8E34E200143C3D /* TaskRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFC22902C8E34E200143C3D /* TaskRowView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -33,6 +34,7 @@
 		FAFC228A2C8E31BC00143C3D /* Bool+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bool+Extensions.swift"; sourceTree = "<group>"; };
 		FAFC228C2C8E32F500143C3D /* Task.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Task.swift; sourceTree = "<group>"; };
 		FAFC228E2C8E33E700143C3D /* TaskController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskController.swift; sourceTree = "<group>"; };
+		FAFC22902C8E34E200143C3D /* TaskRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskRowView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -89,6 +91,7 @@
 			isa = PBXGroup;
 			children = (
 				FAFC227C2C8E2E9F00143C3D /* HomeView.swift */,
+				FAFC22902C8E34E200143C3D /* TaskRowView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -192,6 +195,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FAFC22852C8E315500143C3D /* OffsetKey.swift in Sources */,
+				FAFC22912C8E34E200143C3D /* TaskRowView.swift in Sources */,
 				FAFC226D2C8E2E5000143C3D /* TaskManagerApp.swift in Sources */,
 				FAFC22872C8E318600143C3D /* View+Extensions.swift in Sources */,
 				FAFC22892C8E319F00143C3D /* Date+Extensions.swift in Sources */,
