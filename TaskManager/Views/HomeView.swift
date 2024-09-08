@@ -10,18 +10,24 @@ import SwiftUI
 struct HomeView: View {
     @Environment(\.modelContext) private var modelContext
     @State private var currentDate = Date()
-    @State private var weekCollection: [[Date.WeekDay]] = [] // [[prev week], [current week], [next week]].
-    @State private var currentWeekIndex = 1
-    @State private var createWeek = false
-    @State private var createNewTask = false
-    @State private var taskToEdit: Task?
-    
-    private let offset: CGFloat = 10
-    
+    @State private var weekCollection: [[Date.WeekDay]] = [] // Collection of weeks: [previous, current, next]
+    @State private var currentWeekIndex = 1 // Start at the second week (current)
+    @State private var createWeek = false // Flag to trigger the creation of a new week when needed
+    @State private var createNewTask = false // Controls whether the "create new task" sheet is shown
+    @State private var taskToEdit: Task? // Task being edited (or nil if none)
+
+    // The 'offset' is used for padding and to detect when the user has swiped far enough to trigger paging.
+    // The app initially loads the previous, current, and next weeks into 'weekCollection'.
+    // When the user swipes far enough (detected by the offset), we load a new week.
+    // If the user swipes to the previous week (index 0), we insert the previous week at the start of the array and remove the last one.
+    // If the user swipes to the next week (index 2), we append the next week to the end and remove the first one.
+    // This ensures that 'weekCollection' always contains three weeks and the current week stays in the middle.
+    private let paddingOffset: CGFloat = 15 // Padding offset used for layout and swipe detection
+
     var body: some View {
         VStack(alignment: .leading, spacing: 0) {
-            HeaderView()
-            TasksView(currentDate: $currentDate, taskToEdit: $taskToEdit)
+            HeaderView() // Header view showing date and more menu
+            TasksView(currentDate: $currentDate, taskToEdit: $taskToEdit) // Task view with current date and task to edit
         }
         .overlay(alignment: .bottomTrailing, content: {
             Button(action: toggleCreateNewTask, label: {
@@ -31,39 +37,44 @@ struct HomeView: View {
                     .frame(width: 50, height: 50)
                     .background(.blue.shadow(.drop(color: .black.opacity(0.25), radius: 5, x: 10, y: 10)), in: .circle)
             })
-            .padding(15)
         })
+        .padding(paddingOffset)  // Correct padding using the offset variable
         .onAppear {
-            initializeWeekSlider()
+            initializeWeekSlider() // Initialize the week slider when the view appears
         }
         .sheet(isPresented: Binding<Bool>(
-            get: { createNewTask || taskToEdit != nil }, // The sheet is presented if either is true
-            set: { if !$0 { createNewTask = false; taskToEdit = nil } }  // Reset both when the sheet is dismissed
+            get: { createNewTask || taskToEdit != nil }, // Show sheet if creating a new task or editing one
+            set: { if !$0 { createNewTask = false; taskToEdit = nil } } // Reset when the sheet is dismissed
         )) {
-            AddEditTaskView(taskToEdit: $taskToEdit)
+            AddEditTaskView(taskToEdit: $taskToEdit) // Sheet for adding or editing tasks
                 .presentationDetents([.height(300)])
-                .interactiveDismissDisabled()
+                .interactiveDismissDisabled() // Prevent dismissing interactively
                 .presentationCornerRadius(30)
         }
         .onChange(of: currentWeekIndex, initial: false) { oldValue, newValue in
-            handleWeekChange(newIndex: newValue)
+            handleWeekChange(newIndex: newValue) // Handle week change when the user swipes to a different week
         }
     }
     
+    // Initialize the week slider to today's date
     private func initializeWeekSlider() {
         resetWeekCalendarToToday()
     }
 
+    // Handle week changes when the index changes
     private func handleWeekChange(newIndex: Int) {
+        // If the user reaches the first or last week, trigger week creation
         if newIndex == 0 || newIndex == (weekCollection.count - 1) {
             triggerWeekCreation()
         }
     }
 
+    // Set flag to trigger week creation
     private func triggerWeekCreation() {
         createWeek = true
     }
 
+    // Toggle the state for creating a new task
     private func toggleCreateNewTask() {
         createNewTask.toggle()
     }
@@ -82,15 +93,15 @@ struct HomeView: View {
                         .foregroundStyle(.gray)
                 }
                 .onTapGesture {
-                    resetWeekCalendarToToday()
+                    resetWeekCalendarToToday() // Reset to today when the date is tapped
                 }
                 
                 Spacer()
                 
-                // MARK: More Menu
+                // MARK: More Menu (for adding or removing mock data)
                 Menu {
-                    Button("Add Mock Data", action: addMockData)
-                    Button("Remove Mock Data", action: removeMockData)
+                    Button("Add Mock Data", action: addMockData) // Adds mock data to the task list
+                    Button("Remove Mock Data", action: removeMockData) // Removes all mock data
                 } label: {
                     Label("", systemImage: "ellipsis")
                         .font(.system(size: 20, weight: .medium))
@@ -105,12 +116,12 @@ struct HomeView: View {
                 ForEach(weekCollection.indices, id: \.self) { index in
                     let week = weekCollection[index]
                     WeekView(week)
-                        .padding(.horizontal, offset)
-                        .tag(index)
+                        .padding(.horizontal, paddingOffset)
+                        .tag(index) // Use index as the tag for the TabView selection
                 }
             }
-            .padding(.horizontal, -offset)
-            .tabViewStyle(.page(indexDisplayMode: .never))
+            .padding(.horizontal, -paddingOffset) // Negative offset for consistent padding
+            .tabViewStyle(.page(indexDisplayMode: .never)) // TabView without the page index indicator
             .frame(height: 90)
         }
     }
@@ -128,11 +139,12 @@ struct HomeView: View {
                         .foregroundStyle(day.date.isSameDate(as: currentDate) ? .white : .primary)
                         .frame(width: 35, height: 35)
                         .background(content: {
+                            // Highlight the current day
                             if day.date.isSameDate(as: currentDate) {
                                 RoundedRectangle(cornerRadius: 8)
                                     .fill(.blue.shadow(.drop(color: .black.opacity(0.25), radius: 2, x: 0, y: 0)))
                             }
-                            // MARK: WeekView Indicator
+                            // MARK: WeekView Indicator for today's date
                             if day.date.isToday {
                                 Circle()
                                     .fill(.gray)
@@ -146,7 +158,7 @@ struct HomeView: View {
                 .contentShape(.rect)
                 .onTapGesture {
                     withAnimation(.snappy) {
-                        currentDate = day.date
+                        currentDate = day.date // Update current date when a day is tapped
                     }
                 }
             }
@@ -161,9 +173,9 @@ struct HomeView: View {
                     .onPreferenceChange(OffsetKey.self) { value in
                         // When the scroll offset reaches the defined 'offset' value,
                         // and the flag 'createWeek' is true, generate the next or previous week.
-                        if value.rounded() == offset && createWeek {
-                            pagingWeek()  // Call function to load the next or previous week
-                            createWeek = false  // Reset the flag after paging
+                        if value.rounded() == paddingOffset && createWeek {
+                            createWeek = false
+                            pagingWeek()  // Load next or previous week based on currentWeekIndex
                         }
                     }
             }
@@ -172,29 +184,28 @@ struct HomeView: View {
     
     //MARK: - Helpers
     private func pagingWeek() {
-        // Ensure that the current week index is valid within the weekCollection's bounds
+        // Ensure the current week index is valid within the weekCollection bounds
         if weekCollection.indices.contains(currentWeekIndex) {
             
             // If the current week is the first one (index 0), load the previous week
-            if let firstDate = weekCollection[currentWeekIndex].first?.date, currentWeekIndex == 0 {
-                // Insert the previous week at the start of the collection and remove the last week to keep the collection size consistent
+            if let firstDate = weekCollection.first?.first?.date, currentWeekIndex == 0 {
+                // Insert the previous week at the start and remove the last to maintain the array size
                 weekCollection.insert(firstDate.createPreviousWeek(), at: 0)
                 weekCollection.removeLast()
-                // Update the currentWeekIndex to point to the new current week
-                currentWeekIndex = 1
+                currentWeekIndex = 1 // Update index to point to the current week
             }
             
-            // If the current week is the last one in the collection, load the next week
-            if let lastDate = weekCollection[currentWeekIndex].last?.date, currentWeekIndex == (weekCollection.count - 1) {
-                // Append the next week to the end of the collection and remove the first week to maintain the collection size
+            // If the current week is the last one (index 2), load the next week
+            if let lastDate = weekCollection.last?.last?.date, currentWeekIndex == 2 {
+                // Append the next week and remove the first to maintain the array size
                 weekCollection.append(lastDate.createNextWeek())
                 weekCollection.removeFirst()
-                // Update the currentWeekIndex to point to the new current week (second-to-last in the collection)
-                currentWeekIndex = weekCollection.count - 2
+                currentWeekIndex = 1 // Update index to point to the current week
             }
         }
     }
 
+    // Reset the week calendar to the current date
     private func resetWeekCalendarToToday() {
         currentDate = Date()
         currentWeekIndex = 1
@@ -203,22 +214,25 @@ struct HomeView: View {
         
         let currentWeek = Date().fetchWeek()
         
+        // Create an initial week collection with the previous, current, and next weeks
         if let firstDate = currentWeek.first?.date {
-            weekCollection.append(firstDate.createPreviousWeek())
+            weekCollection.append(firstDate.createPreviousWeek()) // Add previous week
         }
         
-        weekCollection.append(currentWeek)
+        weekCollection.append(currentWeek) // Add current week
         
         if let lastDate = currentWeek.last?.date {
-            weekCollection.append(lastDate.createNextWeek())
+            weekCollection.append(lastDate.createNextWeek()) // Add next week
         }
     }
     
+    // Add mock data for testing
     private func addMockData() {
         Task.createMockData(modelContext: modelContext)
         resetWeekCalendarToToday()
     }
     
+    // Remove all mock data
     private func removeMockData() {
         Task.deleteAllTasks(modelContext: modelContext)
         resetWeekCalendarToToday()
