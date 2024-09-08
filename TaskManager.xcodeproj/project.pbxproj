@@ -12,6 +12,10 @@
 		FAFC22762C8E2E5100143C3D /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FAFC22752C8E2E5100143C3D /* Preview Assets.xcassets */; };
 		FAFC227D2C8E2E9F00143C3D /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFC227C2C8E2E9F00143C3D /* HomeView.swift */; };
 		FAFC22832C8E300C00143C3D /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = FAFC22822C8E300C00143C3D /* README.md */; };
+		FAFC22852C8E315500143C3D /* OffsetKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFC22842C8E315500143C3D /* OffsetKey.swift */; };
+		FAFC22872C8E318600143C3D /* View+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFC22862C8E318600143C3D /* View+Extensions.swift */; };
+		FAFC22892C8E319F00143C3D /* Date+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFC22882C8E319F00143C3D /* Date+Extensions.swift */; };
+		FAFC228B2C8E31BC00143C3D /* Bool+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFC228A2C8E31BC00143C3D /* Bool+Extensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -21,6 +25,10 @@
 		FAFC22752C8E2E5100143C3D /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		FAFC227C2C8E2E9F00143C3D /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		FAFC22822C8E300C00143C3D /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		FAFC22842C8E315500143C3D /* OffsetKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OffsetKey.swift; sourceTree = "<group>"; };
+		FAFC22862C8E318600143C3D /* View+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Extensions.swift"; sourceTree = "<group>"; };
+		FAFC22882C8E319F00143C3D /* Date+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extensions.swift"; sourceTree = "<group>"; };
+		FAFC228A2C8E31BC00143C3D /* Bool+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bool+Extensions.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -84,6 +92,9 @@
 		FAFC227F2C8E2F5000143C3D /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				FAFC22862C8E318600143C3D /* View+Extensions.swift */,
+				FAFC22882C8E319F00143C3D /* Date+Extensions.swift */,
+				FAFC228A2C8E31BC00143C3D /* Bool+Extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -98,6 +109,7 @@
 		FAFC22812C8E2FA000143C3D /* OffsetKey */ = {
 			isa = PBXGroup;
 			children = (
+				FAFC22842C8E315500143C3D /* OffsetKey.swift */,
 			);
 			path = OffsetKey;
 			sourceTree = "<group>";
@@ -173,8 +185,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FAFC22852C8E315500143C3D /* OffsetKey.swift in Sources */,
 				FAFC226D2C8E2E5000143C3D /* TaskManagerApp.swift in Sources */,
+				FAFC22872C8E318600143C3D /* View+Extensions.swift in Sources */,
+				FAFC22892C8E319F00143C3D /* Date+Extensions.swift in Sources */,
 				FAFC227D2C8E2E9F00143C3D /* HomeView.swift in Sources */,
+				FAFC228B2C8E31BC00143C3D /* Bool+Extensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
